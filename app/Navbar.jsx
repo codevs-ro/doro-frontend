@@ -3,16 +3,41 @@
 import { useState, useEffect } from "react";
 
 function Navbar() {
-  const [user, setUser] = useState({ username: "", uid: "" });
+  const [user, setUser] = useState({ id: "", name: "" });
   const [isLoading, setIsLoading] = useState(true);
   const [shown, setShown] = useState(false);
   useEffect(() => {
     setUser({
-      username: localStorage.getItem("username"),
-      uid: localStorage.getItem("userId"),
+      id: localStorage.getItem("userId"),
+      name: localStorage.getItem("username"),
     });
     setIsLoading(false);
   }, []);
+
+  const handlePayment = async () => {
+    try {
+      const response = await fetch(
+        "https://dorobantu-backend.vercel.app/api/v1/create-checkout-session",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            id: user.id,
+            name: user.name,
+          },
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        window.location.href = data.url;
+      } else {
+        console.error("Error in creating the session");
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+    }
+  };
   return (
     <nav className="bg-gray-200 p-4 fixed top-0 w-full flex items-center justify-between">
       <a
@@ -35,7 +60,7 @@ function Navbar() {
           Course
         </a>
       </div>
-      <div>
+      <div className="flex items-center justify-between">
         {isLoading && (
           <p className="w-full text-center text-xs text-gray-950/20">
             Loading . . .{" "}
@@ -43,7 +68,7 @@ function Navbar() {
         )}
         {!isLoading && (
           <div>
-            {user.username && user.uid && (
+            {user.name && user.id && (
               <div
                 className="bg-red-300 cursor-pointer relative py-2 text-sm px-4 font-semibold rounded-sm flex items-center justify-start"
                 onClick={() => setShown(!shown)}
@@ -57,7 +82,7 @@ function Navbar() {
                 >
                   <path d="M7 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm2 1H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
                 </svg>
-                {user.username}
+                {user.name}
                 {shown && (
                   <div className="py-2 px-4 text-xs flex flex-col gap-2 bg-red-300 border-2 border-red-800  rounded-x-md rounded-b-md absolute   w-full top-8 left-0">
                     <a href="/account">Log out</a>
@@ -67,7 +92,7 @@ function Navbar() {
                 )}
               </div>
             )}
-            {!user.username && !user.uid && (
+            {!user.name && !user.id && (
               <a
                 href="/account"
                 className="bg-red-200 text-gray-950 font-sans py-2 px-4 font-bold rounded-md"
@@ -77,6 +102,12 @@ function Navbar() {
             )}
           </div>
         )}
+        <button
+          className="py-1 px-4 ml-2 text-blue-900 font-bold bg-blue-200"
+          onClick={handlePayment}
+        >
+          Pay
+        </button>
       </div>
     </nav>
   );

@@ -4,28 +4,66 @@ import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const LessonPage = () => {
+  const [user, setUser] = useState({ id: "", name: "" });
   const [lesson, setLesson] = useState([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
-  const id = usePathname();
+  const idPath = usePathname();
 
-  if (id != null) {
-    useEffect(() => {
-      fetch(`http://localhost:5000/api/v1${id}`) // Make sure to add a slash before the id
-        .then((response) => response.json())
-        .then((data) => {
-          // Handle fetched data
-          setLesson(data);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error("Error fetching lessons:", error);
-          setLoading(false);
-        });
-    }, []);
+  function generateRandomKey() {
+    return Math.floor(Math.random() * 1000000); // Change the range as needed
   }
+  useEffect(() => {
+    // Get user details from localStorage
+    const storedUserId = localStorage.getItem("userId");
+    const storedUsername = localStorage.getItem("username");
 
-  console.log(lesson);
+    // Update user state with values from localStorage
+    setUser({
+      id: storedUserId,
+      name: storedUsername,
+    });
+  }, []);
+
+  const fetchData = async (name, id) => {
+    try {
+      const url = `https://dorobantu-backend.vercel.app/api/v1${idPath}`; // Replace with your API endpoint
+
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          id: id,
+          name: name,
+          // Add other headers as needed
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json().then((data) => setLesson(data));
+      // Handle the data received from the server
+    } catch (error) {
+      // Handle fetch errors
+      console.error("Fetch error:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (idPath != null && user.name && user.id) {
+      const id = user.id;
+      const name = user.name;
+      try {
+        fetchData(name, id);
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching lessons:", error);
+        setLoading(false);
+      }
+    }
+  }, [user]);
   // Render conten  t based on the fetched data
   return (
     <div className=" py-36   bg-gray-900">
@@ -37,7 +75,7 @@ const LessonPage = () => {
           </h1>
           <div className="flex flex-col  items-start gap-12"></div>
           {lesson[0].content.parts.map((item) => {
-            return <p>{item}</p>;
+            return <p key={generateRandomKey()}>{item}</p>;
           })}
         </div>
       )}
