@@ -69,14 +69,33 @@ const LessonPage = () => {
     <div className=" py-36   bg-gray-900">
       {!lesson[0] && loading && <p>Loading ...</p>}
       {lesson[0] && (
-        <div className="md:w-1/2 flex flex-col mx-auto gap-8  ">
-          <h1 className="font-bold text-2xl text-center underline underline-offset-4">
+        <div className="md:w-5/12 flex flex-col mx-auto gap-8  ">
+          <h1 className="font-bold flex items-start poppins text-2xl text-white">
+            <svg
+              class="w-6 h-6 text-gray-800 dark:text-green-300 mr-2"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 18 14"
+            >
+              <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
+            </svg>
             {lesson[0].content.title}
           </h1>
           <div className="flex flex-col  items-start gap-12"></div>
           {lesson[0].content.parts.map((item) => {
-            return <p key={generateRandomKey()}>{item}</p>;
+            return (
+              <p
+                className="text-white/50 poppins text-sm font-normal"
+                key={generateRandomKey()}
+              >
+                {item}
+              </p>
+            );
           })}
+          <button className="bg-teal-500 mt-8 p-2 poppins font-semibold rounded-md">
+            Complete Lesson
+          </button>
         </div>
       )}
     </div>

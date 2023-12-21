@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 const Lesson = (props) => {
   return (
     <a
-      className=" p-1 cursor-pointer bg-gray-200 rounded-sm"
+      className=" p-1 cursor-pointer bg-gray-200/50 hover:bg-gray-200/80 transition-all rounded-sm"
       href={`/course/lesson/${props.id}`}
     >
-      <h3 className="text-lg font-bold text-gray-950 p-1 ">
+      <h3 className="text-lg font-bold text-white poppins p-1 ">
         Lesson {props.id}
       </h3>
 
-      <h5 className="text-sm text-gray-950 p-1 ">{props.title}</h5>
+      <h5 className="text-sm text-gray-950 p-1 poppins">{props.title}</h5>
     </a>
   );
 };
@@ -68,14 +68,14 @@ function Course() {
   }, [user]);
 
   return (
-    <div className=" py-24 bg-gray-900 text-xl flex items-center gap-8 flex-col justify-center text-white">
+    <div className="px-8 md:px-16 lg:px-32 xl:px-36 2xl:px-96  pt-36 pb-24 bg-gray-950   text-white">
       <div>
-        <p className="text-center font-bold underline underline-offset-4">
+        <p className="text-center font-bold text-4xl ">
           {" "}
-          Course Lessons{" "}
+          Your learning path is here!{" "}
         </p>{" "}
       </div>
-      <div className="md:w-5/12 grid grid-cols-1 gap-2 p-1">
+      <div className="md:w-1/2 mx-auto mt-8 grid grid-cols-1 gap-2 p-1">
         {lessons &&
           lessons.map((item) => {
             return (

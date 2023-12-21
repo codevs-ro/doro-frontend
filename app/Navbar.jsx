@@ -1,5 +1,6 @@
 "use client";
 
+import { stringify } from "postcss";
 import { useState, useEffect } from "react";
 
 function Navbar() {
@@ -10,20 +11,22 @@ function Navbar() {
     setUser({
       id: localStorage.getItem("userId"),
       name: localStorage.getItem("username"),
+      isPaid: localStorage.getItem("isPaid"),
     });
     setIsLoading(false);
   }, []);
-
+  console.log(user);
   const handlePayment = async () => {
     try {
       const response = await fetch(
-        "https://dorobantu-backend.vercel.app/api/v1/create-checkout-session",
+        "https://dorobantu-backend.vercel.app/api/v1/ ",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             id: user.id,
             name: user.name,
+            isPaid: user.isPaid,
           },
         }
       );
@@ -39,27 +42,18 @@ function Navbar() {
     }
   };
   return (
-    <nav className="bg-gray-200 p-4 fixed top-0 w-full flex items-center justify-between">
+    <nav className="bg-gray-950 border-b  border-white/20 px-2 md:px-16 lg:px-32 xl:px-36 2xl:px-96 py-4 fixed top-0 w-full flex items-center justify-between">
       <a
         href="/"
-        className="font-bold font-sans py-2 px-4 text-xl flex items-center justify-start gap-1 text-gray-950"
+        className="poppins text-green-300  font-bold font-sans py-2 px-4 text-sm md:text-xl flex items-center justify-start gap-1 "
       >
-        <svg
-          className="w-6 h-6 text-gray-800 dark:text-green-500 mr-1"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
-          <path d="M17.876.517A1 1 0 0 0 17 0H3a1 1 0 0 0-.871.508C1.63 1.393 0 5.385 0 6.75a3.236 3.236 0 0 0 1 2.336V19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-6h4v6a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V9.044a3.242 3.242 0 0 0 1-2.294c0-1.283-1.626-5.33-2.124-6.233ZM15.5 14.7a.8.8 0 0 1-.8.8h-2.4a.8.8 0 0 1-.8-.8v-2.4a.8.8 0 0 1 .8-.8h2.4a.8.8 0 0 1 .8.8v2.4ZM16.75 8a1.252 1.252 0 0 1-1.25-1.25 1 1 0 0 0-2 0 1.25 1.25 0 0 1-2.5 0 1 1 0 0 0-2 0 1.25 1.25 0 0 1-2.5 0 1 1 0 0 0-2 0A1.252 1.252 0 0 1 3.25 8 1.266 1.266 0 0 1 2 6.75C2.306 5.1 2.841 3.501 3.591 2H16.4A19.015 19.015 0 0 1 18 6.75 1.337 1.337 0 0 1 16.75 8Z" />
-        </svg>
-        Doro Online
+        successful-mind.com
       </a>
-      <div className="w-5/12 flex items-center justify-between">
-        <a href="/course" className="text-gray-950">
-          Course
-        </a>
-      </div>
+      {!isLoading && user.name && user.id && (
+        <div className="w-5/12 text-white flex items-center hidden md:block justify-between">
+          <a href="/course">Course</a>
+        </div>
+      )}
       <div className="flex items-center justify-between">
         {isLoading && (
           <p className="w-full text-center text-xs text-gray-950/20">
@@ -70,24 +64,30 @@ function Navbar() {
           <div>
             {user.name && user.id && (
               <div
-                className="bg-red-300 cursor-pointer relative py-2 text-sm px-4 font-semibold rounded-sm flex items-center justify-start"
+                className=" cursor-pointer relative py-2 text-sm px-4 text-gray-50 font-semibold rounded-sm flex items-center justify-start"
                 onClick={() => setShown(!shown)}
               >
                 <svg
-                  className="w-4 h-4 inline-block text-gray-800 mr-2 dark:text-white"
+                  className="w-4 h-4 mr-1 text-gray-800 dark:text-blue-400"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 14 18"
+                  fill="none"
+                  viewBox="0 0 21 21"
                 >
-                  <path d="M7 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm2 1H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m6.072 10.072 2 2 6-4m3.586 4.314.9-.9a2 2 0 0 0 0-2.828l-.9-.9a2 2 0 0 1-.586-1.414V5.072a2 2 0 0 0-2-2H13.8a2 2 0 0 1-1.414-.586l-.9-.9a2 2 0 0 0-2.828 0l-.9.9a2 2 0 0 1-1.414.586H5.072a2 2 0 0 0-2 2v1.272a2 2 0 0 1-.586 1.414l-.9.9a2 2 0 0 0 0 2.828l.9.9a2 2 0 0 1 .586 1.414v1.272a2 2 0 0 0 2 2h1.272a2 2 0 0 1 1.414.586l.9.9a2 2 0 0 0 2.828 0l.9-.9a2 2 0 0 1 1.414-.586h1.272a2 2 0 0 0 2-2V13.8a2 2 0 0 1 .586-1.414Z"
+                  />
                 </svg>
                 {user.name}
                 {shown && (
-                  <div className="py-2 px-4 text-xs flex flex-col gap-2 bg-red-300 border-2 border-red-800  rounded-x-md rounded-b-md absolute   w-full top-8 left-0">
+                  <div className="py-2 px-4 text-xs text-gray-500 flex flex-col gap-2 bg-gray-100 border-4 border-gray-400  rounded-md rounded-b-md absolute   w-full top-8 left-0">
                     <a href="/account">Log out</a>
                     <a href="/privacy-policy">Privacy Policy</a>
-                    <a className="/terms-of-use">Terms of use</a>
+                    <a href="/terms-of-use">Terms of use</a>
                   </div>
                 )}
               </div>
@@ -95,19 +95,21 @@ function Navbar() {
             {!user.name && !user.id && (
               <a
                 href="/account"
-                className="bg-red-200 text-gray-950 font-sans py-2 px-4 font-bold rounded-md"
+                className="border-2 text-xs border-green-300 poppins text-white font-sans py-2 px-4 font-bold rounded-md"
               >
-                Authenticate
+                Register / Login
               </a>
             )}
           </div>
         )}
-        <button
-          className="py-1 px-4 ml-2 text-blue-900 font-bold bg-blue-200"
-          onClick={handlePayment}
-        >
-          Pay
-        </button>
+        {user.isPaid === "false" && (
+          <button
+            className="hidden md:block py-2 px-4 ml-2 text-sm font-semibold text-gray-950 rounded-md poppins  bg-green-300"
+            onClick={handlePayment}
+          >
+            Buy the course
+          </button>
+        )}
       </div>
     </nav>
   );

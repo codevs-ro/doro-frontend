@@ -18,7 +18,7 @@ function Auth() {
     setIsLoading(false);
   }, []);
   return (
-    <div className="bg-gray-900 p-20 h-screen">
+    <div className="bg-gray-950 py-24">
       {isLoading && <p className="text-xl my-8 mx-8 ">Loading . . . </p>}
       {!isLoading && (
         <div>
