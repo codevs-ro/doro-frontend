@@ -56,22 +56,22 @@ function Login() {
         <label className="text-xs sans text-gray-50">Email</label>
         <input
           type="email"
-          className="w-full mb-4 bg-gray-400/50 rounded-md border-2 border-gray-900/20"
+          className="w-full text-sm mb-4 px-2 focus:outline-none bg-gray-400/50 rounded-md border-2 border-gray-900/20"
           value={email}
           onChange={handleEmailChange}
         />
         <label className="text-xs sans text-gray-50">Password</label>
         <input
           type="password"
-          className="w-full mb-4 bg-gray-400/50 rounded-md border-2 border-gray-900/20"
+          className="w-full mb-4 text-sm px-2 focus:outline-none bg-gray-400/50 rounded-md border-2 border-gray-900/20"
           value={password}
           onChange={handlePasswordChange}
         />
         <button
-          className="bg-green-300 text-sm font-normal text-gray-900 px-4 py-1 text-md mt-4 rounded-md w-full"
+          className="bg-green-300 text-sm font-semibold text-gray-900 px-4 py-1 text-md mt-4 rounded-md w-full"
           type="submit"
         >
-          Login
+          Sign in
         </button>
       </form>
     </div>

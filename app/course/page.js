@@ -4,14 +4,16 @@ import { useEffect, useState } from "react";
 const Lesson = (props) => {
   return (
     <a
-      className=" p-1 cursor-pointer bg-gray-200/50 hover:bg-gray-200/80 transition-all rounded-sm"
+      className=" p-2 cursor-pointer bg-gray-200/50 flex items-center justify-start gap-2 hover:bg-gray-200/80 transition-all rounded-sm"
       href={`/course/lesson/${props.id}`}
     >
-      <h3 className="text-lg font-bold text-white poppins p-1 ">
-        Lesson {props.id}
-      </h3>
+      <h5 className="text-2xl w-1/12 h-auto text-center font-bold  text-white/80 poppins">
+        {props.id}
+      </h5>
 
-      <h5 className="text-sm text-gray-950 p-1 poppins">{props.title}</h5>
+      <p className="text-sm text-gray-950 px-4 poppins border-l-2 border-white/80">
+        {props.title}
+      </p>
     </a>
   );
 };
@@ -68,14 +70,20 @@ function Course() {
   }, [user]);
 
   return (
-    <div className="px-8 md:px-16 lg:px-32 xl:px-36 2xl:px-96  pt-36 pb-24 bg-gray-950   text-white">
-      <div>
-        <p className="text-center font-bold text-4xl ">
+    <div className="px-8 md:px-16 lg:px-32 xl:px-36 2xl:px-96  pt-36 pb-24 bg-gray-950 flex md:flex-row flex-col gap-8 justify-between  text-white">
+      <div className="">
+        <p className="text-left font-bold text-4xl capitalize">
           {" "}
-          Your learning path is here!{" "}
+          Your learning path{" "}
         </p>{" "}
+        <div className="md:w-8/12 mt-4">
+          <p className="poppins mb-2 text-xs">Current progress</p>
+          <div className="p-2 w-full border-2 border-white/50 bg-green-300 rounded-full flex items-center justify-center">
+            <p className="text-xs poppins font-bold text-gray-950">100%</p>
+          </div>
+        </div>
       </div>
-      <div className="md:w-1/2 mx-auto mt-8 grid grid-cols-1 gap-2 p-1">
+      <div className=" grid grid-cols-1 gap-2 p-1">
         {lessons &&
           lessons.map((item) => {
             return (

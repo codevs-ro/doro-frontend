@@ -1,24 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
-function Succes() {
+
+function notFound() {
   return (
     <div className="px-8 h-screen md:px-16 lg:px-32 xl:px-36 2xl:px-96  py-36 bg-gray-950 text-xl flex flex-col md:flex-row items-center justify-between text-white">
       <div>
         <h1 className="poppins text-4xl font-bold text-center md:text-left text-white">
-          Yay! Happy learning!
+          Page Not Found
         </h1>
         <Image
-          src="/purchase.svg"
-          alt="Thank you for you purchase Illustration"
+          src="/notfound.svg"
+          alt="Not found robot illustration"
           width={400}
           height={400}
           className="mt-8 md:hidden"
         />
         <Link
-          href="/course"
+          href="/"
           className="poppins bg-green-300 block md:inline-block w-8/12 mx-auto px-6 py-2 rounded-md text-center  mt-8 text-gray-950 text-sm font-bold"
         >
-          To the course
+          Take me home
           <svg
             className="w-4 h-4 text-gray-800 dark:text-gray-950 inline-block ml-2"
             aria-hidden="true"
@@ -38,8 +39,8 @@ function Succes() {
       </div>
       <div className="w-8/12 flex items-center justify-end">
         <Image
-          src="/purchase.svg"
-          alt="Thank you for you purchase Illustration"
+          src="/notfound.svg"
+          alt="Not found robot illustration"
           width={400}
           height={400}
           className="hidden md:block"
@@ -48,4 +49,5 @@ function Succes() {
     </div>
   );
 }
-export default Succes;
+
+export default notFound;

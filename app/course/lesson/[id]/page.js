@@ -66,7 +66,7 @@ const LessonPage = () => {
   }, [user]);
   // Render conten  t based on the fetched data
   return (
-    <div className=" py-36   bg-gray-900">
+    <div className=" py-36 px-4 bg-gray-950">
       {!lesson[0] && loading && <p>Loading ...</p>}
       {lesson[0] && (
         <div className="md:w-5/12 flex flex-col mx-auto gap-8  ">
@@ -86,16 +86,32 @@ const LessonPage = () => {
           {lesson[0].content.parts.map((item) => {
             return (
               <p
-                className="text-white/50 poppins text-sm font-normal"
+                className="text-white/80 poppins text-sm font-normal"
                 key={generateRandomKey()}
               >
                 {item}
               </p>
             );
           })}
-          <button className="bg-teal-500 mt-8 p-2 poppins font-semibold rounded-md">
+          <button className="bg-green-300  mt-8 p-2 poppins font-semibold rounded-md">
             Complete Lesson
           </button>
+          <div className="mt-8 bg-white/80 p-6  rounded-md text-gray-950">
+            <h1 className="poppins  text-3xl">Any misunderstandings?</h1>
+            <p className="mt-4 poppins text-sm">
+              Fill in your email address and we will get back to you shortly!
+            </p>
+            <div className="flex items-center justify-between mt-4">
+              <input
+                type="email"
+                placeholder="your-email@example.com"
+                className="placeholder:text-sm placeholder:text-white/50 w-8/12 bg-gray-950/20  rounded-md px-4 py-1 border-2 border-gray-950/30"
+              ></input>
+              <button className="text-xs font-bold px-8 py-2 poppins  ml-2   bg-green-300 rounded-md">
+                Submit
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

@@ -19,7 +19,7 @@ function Navbar() {
   const handlePayment = async () => {
     try {
       const response = await fetch(
-        "https://dorobantu-backend.vercel.app/api/v1/ ",
+        "https://dorobantu-backend.vercel.app/api/v1/create-checkout-session ",
         {
           method: "POST",
           headers: {
@@ -49,8 +49,8 @@ function Navbar() {
       >
         successful-mind.com
       </a>
-      {!isLoading && user.name && user.id && (
-        <div className="w-5/12 text-white flex items-center hidden md:block justify-between">
+      {!isLoading && user.isPaid === "true" && (
+        <div className="w-5/12 text-white  items-center hidden md:block justify-between">
           <a href="/course">Course</a>
         </div>
       )}
@@ -84,10 +84,23 @@ function Navbar() {
                 </svg>
                 {user.name}
                 {shown && (
-                  <div className="py-2 px-4 text-xs text-gray-500 flex flex-col gap-2 bg-gray-100 border-4 border-gray-400  rounded-md rounded-b-md absolute   w-full top-8 left-0">
+                  <div className="py-2 px-4 text-xs text-gray-950 flex flex-col gap-4 bg-gray-100 border-4 border-gray-400  rounded-md rounded-b-md absolute   w-full top-8 left-0">
+                    {user.isPaid === "true" && (
+                      <a href="/course" className="md:hidden block">
+                        Course
+                      </a>
+                    )}
+                    {user.isPaid === "false" && (
+                      <button
+                        onClick={handlePayment}
+                        className="md:hidden bg-green-300  p-1 text-center rounded-md block"
+                      >
+                        Buy Course
+                      </button>
+                    )}
                     <a href="/account">Log out</a>
-                    <a href="/privacy-policy">Privacy Policy</a>
-                    <a href="/terms-of-use">Terms of use</a>
+                    {/* <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/terms-of-use">Terms of use</a> */}
                   </div>
                 )}
               </div>

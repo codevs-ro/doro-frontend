@@ -35,7 +35,7 @@ const Hero = () => {
           className="text-sm text-center md:hidden block rounded-sm text-gray-950 font-semibold bg-green-300 px-6 py-2"
         >
           <svg
-            class="w-4 h-4 text-gray-800 dark:text-gray-950 inline-block mr-2"
+            className="w-4 h-4 text-gray-800 dark:text-gray-950 inline-block mr-2"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -157,14 +157,14 @@ function Bundle() {
         <p className="mt-4 font-medium text-sm mb-8">
           Get the course now for a maximum return on investment!
         </p>
-        <div className="w-full flex md:hidden items-center justify-center ">
+        <div className="w-full flex md:hidden items-center justify-between md:justify-center ">
           <Image
             src="/bundle-img.svg"
-            className="w-6/12"
-            width={400}
-            height={400}
+            className="w-6/12 "
+            width={0}
+            height={0}
           />
-          <div className="my-8 border-l-2   border-green-300 p-4 gap-2  flex flex-col">
+          <div className="my-8 p-2 gap-2  flex flex-col">
             <h4 className="text-md poppins font-semibold text-white flex items-center">
               <svg
                 className="w-4 h-4 inline-block mr-2 text-gray-800 dark:text-yellow-500"
@@ -292,7 +292,7 @@ function Bundle() {
         </div>
         <Link
           href="/"
-          className="text-sm rounded-sm  text-gray-950 font-semibold bg-green-300 px-6 py-2"
+          className="text-sm rounded-sm  mt-4 text-center block md:inline-block md:text-left text-gray-950 font-semibold bg-green-300 px-6 py-2"
         >
           <svg
             class="w-4 h-4 text-gray-800 dark:text-gray-950 inline-block mr-2"
@@ -321,7 +321,7 @@ function Contact() {
       <input
         type="email"
         placeholder="your-email@example.com"
-        className="placeholder:text-sm placeholder:text-center bg-gray-950/20 rounded-md px-4 py-1 border-2 border-gray-950/80"
+        className="placeholder:text-sm placeholder:text-center bg-gray-950/20 rounded-md px-4 py-1 border-2 border-gray-950/30"
       ></input>
       <button className="text-xs font-bold px-8 py-2 poppins  bg-green-300 rounded-md">
         Submit
