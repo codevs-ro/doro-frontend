@@ -3,16 +3,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 function Succes() {
-  useEffect(() => {
+  const refresh = async () => {
+    window.location.reload();
     localStorage.clear();
-  }, []);
+  };
+  useEffect(() => {}, []);
 
   return (
     <div className="px-8 h-screen md:px-16 lg:px-32 xl:px-36 2xl:px-96  py-36 bg-gray-950 text-xl flex flex-col md:flex-row items-center justify-between text-white">
       <div>
         <h1 className="poppins text-4xl font-bold text-center md:text-left text-white">
-          Yay! Happy learning!
+          Yay! Course purchased
         </h1>
+        <h3 className="mt-4 poppins text-bold">
+          Please sign into your account to access the course.
+        </h3>
         <Image
           src="/purchase.svg"
           alt="Thank you for you purchase Illustration"

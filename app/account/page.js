@@ -74,6 +74,7 @@ function Auth() {
                   onClick={() => {
                     localStorage.clear();
                     setUser({ username: "", uid: "" });
+                    window.location.reload();
                   }}
                 >
                   Log out
