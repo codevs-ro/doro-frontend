@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [err, setErr] = useState("");
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -57,11 +58,9 @@ function Register() {
         if (response.ok) {
           const data = await response.json();
           window.location.href = "/account";
-        } else {
-          console.error("Register  failed");
         }
       } catch (error) {
-        console.error("Network error:", error);
+        setErr("Email already registered");
       }
     }
   };
@@ -70,6 +69,11 @@ function Register() {
       <h3 className="text-gray-50 text-xl sans font-bold mb-4 w-full text-center">
         Register for an account{" "}
       </h3>
+      {err && (
+        <p className="bg-red-500/20 border-2 border-red-500/80 text-xs p-2 rounded-md text-center text-red-300 mb-2 ">
+          {err}
+        </p>
+      )}
       <form className="mx-auto w-10/12" onSubmit={handleSubmit}>
         <label className="text-xs sans text-gray-50 ">Username</label>
         <input

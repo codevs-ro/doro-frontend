@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [err, setErr] = useState("");
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -42,16 +43,17 @@ function Login() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data); // Logging response data
+        // console.log(data); // Logging response data
         localStorage.setItem("username", data.name);
         localStorage.setItem("userId", data.id);
         localStorage.setItem("isPaid", data.isPaid);
         window.location.href = "/account";
       } else {
-        console.error("Login failed");
+        const errorData = await response.json(); // Parse the error response
+        setErr(errorData.error);
       }
     } catch (error) {
-      console.error("Network error:", error);
+      setErr("Network Error");
     }
   };
   return (
@@ -59,6 +61,11 @@ function Login() {
       <h3 className="text-gray-50 text-xl sans font-bold mb-4 w-full text-center">
         Login to your account{" "}
       </h3>
+      {err && (
+        <p className="bg-red-500/20 border-2 border-red-500/80 text-xs p-2 rounded-md text-center text-red-300 mb-2 ">
+          {err}
+        </p>
+      )}
       <form className="mx-auto w-10/12" onSubmit={handleSubmit}>
         <label className="text-xs sans text-gray-50">Email</label>
         <input

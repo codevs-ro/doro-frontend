@@ -1,19 +1,22 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
-function Succes() {
+function Completed() {
   return (
     <div className="px-8 h-screen md:px-16 lg:px-32 xl:px-36 2xl:px-96  py-36 bg-gray-950 text-xl flex flex-col md:flex-row items-center justify-between text-white">
       <div>
         <h1 className="poppins text-4xl font-bold text-center md:text-left text-white">
-          Yay! Course purchased
+          Congrats, Champ!{" "}
+          <span className="text-green-300">Course completed</span>
         </h1>
-        <h3 className="mt-4 poppins text-bold">
-          Please sign into your account to access the course.
+        <h3 className="mt-4 poppins text-center md:text-left text-bold md:w-9/12">
+          You are ready now to explore the benefits of a{" "}
+          <span className="font-bold underline underline-offset-2">
+            successful mind
+          </span>{" "}
+          .
         </h3>
         <Image
-          src="/purchase.svg"
+          src="/completed.svg"
           alt="Thank you for you purchase Illustration"
           width={400}
           height={400}
@@ -23,7 +26,7 @@ function Succes() {
           href="/account"
           className="poppins bg-green-300 block md:inline-block w-8/12 mx-auto px-6 py-2 rounded-md text-center  mt-8 text-gray-950 text-sm font-bold"
         >
-          Login
+          Back home
           <svg
             className="w-4 h-4 text-gray-800 dark:text-gray-950 inline-block ml-2"
             aria-hidden="true"
@@ -43,7 +46,7 @@ function Succes() {
       </div>
       <div className="w-8/12 flex items-center justify-end">
         <Image
-          src="/purchase.svg"
+          src="/completed.svg"
           alt="Thank you for you purchase Illustration"
           width={400}
           height={400}
@@ -53,4 +56,4 @@ function Succes() {
     </div>
   );
 }
-export default Succes;
+export default Completed;

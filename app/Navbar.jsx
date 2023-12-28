@@ -15,7 +15,6 @@ function Navbar() {
     });
     setIsLoading(false);
   }, []);
-  console.log(user);
   const handlePayment = async () => {
     try {
       const response = await fetch(
@@ -33,6 +32,7 @@ function Navbar() {
 
       if (response.ok) {
         const data = await response.json();
+        localStorage.clear();
         window.location.href = data.url;
       } else {
         console.error("Error in creating the session");
@@ -49,17 +49,14 @@ function Navbar() {
       >
         successful-mind.com
       </a>
-      {!isLoading && user.isPaid === "true" && (
-        <div className="w-5/12 text-white  items-center hidden md:block justify-between">
-          <a href="/course">Course</a>
-        </div>
-      )}
+
+      <div className="w-5/12 text-white poppins font-normal   items-center hidden md:block justify-between">
+        {!isLoading && user.isPaid === "true" && <a href="/course">Course</a>}
+        <a href="/about" className="ml-2">
+          About
+        </a>
+      </div>
       <div className="flex items-center justify-between">
-        {isLoading && (
-          <p className="w-full text-center text-xs text-gray-950/20">
-            Loading . . .{" "}
-          </p>
-        )}
         {!isLoading && (
           <div>
             {user.name && user.id && (
