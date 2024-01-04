@@ -8,12 +8,13 @@ function Auth() {
   const [isLoading, setIsLoading] = useState(true);
 
   const [auth, setAuth] = useState(0);
-  const [user, setUser] = useState({ username: "", uid: "" });
+  const [user, setUser] = useState({ username: "", uid: "", progress: 0 });
 
   useEffect(() => {
     setUser({
       username: localStorage.getItem("username"),
       uid: localStorage.getItem("userId"),
+      progress: localStorage.getItem("progress"),
     });
     setIsLoading(false);
   }, []);
@@ -84,7 +85,7 @@ function Auth() {
                 <p className="poppins mb-2 text-xs">Current progress</p>
                 <div className="p-2 w-full border-2 border-white/50 bg-green-300 rounded-full flex items-center justify-center">
                   <p className="text-xs poppins font-bold text-gray-950">
-                    100%
+                    {user.progress} / 26 Completed
                   </p>
                 </div>
                 <button

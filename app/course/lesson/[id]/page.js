@@ -1,12 +1,12 @@
-// Example of using useRouter in a Next.js functional component
 "use client";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const LessonPage = () => {
-  const [user, setUser] = useState({ id: "", name: "" });
+  const [user, setUser] = useState({ id: "", name: "", num: "" });
   const [lesson, setLesson] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [location, setLocation] = useState("");
   const router = useRouter();
   const idPath = usePathname();
 
@@ -17,14 +17,23 @@ const LessonPage = () => {
     // Get user details from localStorage
     const storedUserId = localStorage.getItem("userId");
     const storedUsername = localStorage.getItem("username");
+    const storedNum = localStorage.getItem("progress");
 
     // Update user state with values from localStorage
     setUser({
       id: storedUserId,
       name: storedUsername,
+      num: storedNum,
     });
   }, []);
-
+  useEffect(() => {
+    if (user.num > 0 && Number(user.num) + Number(2) > 5) {
+      setLocation("http://localhost:3000/completed");
+    } else
+      setLocation(
+        `http://localhost:3000/course/lesson/${Number(user.num) + Number(2)}`
+      );
+  }, [user.num]);
   const fetchData = async (name, id) => {
     try {
       const url = `https://dorobantu-backend.vercel.app/api/v1${idPath}`; // Replace with your API endpoint
@@ -65,6 +74,39 @@ const LessonPage = () => {
     }
   }, [user]);
   // Render conten  t based on the fetched data
+
+  const updateProgress = async () => {
+    const number = Number(idPath[idPath.length - 1]);
+    try {
+      const response = await fetch(
+        "https://dorobantu-backend.vercel.app/api/v1/update-progress",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            id: user.id,
+            name: user.name,
+          },
+          body: JSON.stringify({
+            // Stringify the object
+            id: user.id,
+            number: number,
+          }),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+        console.log(response);
+      }
+      const data = await response.json(); // Removed .then(console.log(data))
+      console.log(data); // Log the response data here
+      localStorage.setItem("progress", number);
+      window.location.href = location;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   if (lesson[0])
     return (
       <div className=" py-36 px-4 bg-gray-950">
@@ -93,9 +135,28 @@ const LessonPage = () => {
                 </p>
               );
             })}
-            <button className="bg-green-300  mt-8 p-2 poppins font-semibold rounded-md">
-              Complete Lesson
-            </button>
+            {user.num < Number(idPath[idPath.length - 1]) && (
+              <button
+                className="bg-green-300  mt-8 p-2 poppins font-semibold rounded-md"
+                onClick={updateProgress}
+              >
+                Complete Lesson
+              </button>
+            )}
+            {user.num >= Number(idPath[idPath.length - 1]) && (
+              <div className="bg-green-300  text-center mt-8 p-2 poppins font-semibold rounded-md">
+                <svg
+                  className="w-4 h-4 text-gray-800 inline-block mr-2 dark:text-gray-950"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 16 20"
+                >
+                  <path d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z" />
+                </svg>{" "}
+                Completed
+              </div>
+            )}
             <div className="mt-8 bg-white/80 p-6  rounded-md text-gray-950">
               <h1 className="poppins  text-3xl">Any misunderstandings?</h1>
               <p className="mt-4 poppins text-sm">
