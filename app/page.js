@@ -113,7 +113,6 @@ const Hero = () => {
           width={3600}
           height={3600}
           alt="Hero Image"
-          priority
         />
       </div>
     </div>
@@ -139,6 +138,7 @@ function AboutCourse() {
             width={3600}
             height={3600}
             alt="About The Course Illustration"
+            priority
           />
           <p className="mt-4 md:w-10/12 md:text-right font-medium text-sm md:mb-4  ">
             Trusted and effective, this course ensures personal growth. Join
@@ -185,6 +185,7 @@ function Bundle() {
             alt="Bundle Image"
             width={3600}
             height={3600}
+            priority
           />
           <div className="my-8 p-2 gap-2  flex flex-col">
             <h4 className="text-xs poppins font-semibold text-white flex items-center">
