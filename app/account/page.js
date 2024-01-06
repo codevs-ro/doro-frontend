@@ -80,12 +80,6 @@ function Auth() {
                       {user.username}
                     </div>
                   </p>
-                  <p className="border-t-2 border-gray-950/50 py-2 gap-2 flex items-center">
-                    <div className="w-1/2 text-end">Course</div>{" "}
-                    <div className="w-1/2 text-start font-semibold">
-                      {user.isPaid ? "Purchased" : "Not purchased"}
-                    </div>
-                  </p>
                 </div>
                 <button
                   className="mt-8 hidden md:block bg-red-400 px-4 py-2 rounded-md  text-sm font-semibold"

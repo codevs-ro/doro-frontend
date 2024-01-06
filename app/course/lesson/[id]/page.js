@@ -28,10 +28,12 @@ const LessonPage = () => {
   }, []);
   useEffect(() => {
     if (user.num == 36) {
-      setLocation("http://localhost:3000/completed");
+      setLocation("https://doro-frontend-ten.vercel.app/completed");
     } else
       setLocation(
-        `http://localhost:3000/course/lesson/${Number(user.num) + Number(2)}`
+        `https://doro-frontend-ten.vercel.app/course/lesson/${
+          Number(user.num) + Number(2)
+        }`
       );
   }, [user.num]);
   console.log(location);
