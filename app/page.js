@@ -1,6 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Find your own way today | Successful Mind",
+  description:
+    "Learn how to take controll over your life and achieve your goals with the speed of light. ",
+};
+
 const Hero = () => {
   return (
     <div className="px-8 md:px-16 lg:px-32 xl:px-36 2xl:px-96  pt-36 pb-24 bg-gray-950 text-xl flex md:flex-row flex-col items-center justify-between text-white">

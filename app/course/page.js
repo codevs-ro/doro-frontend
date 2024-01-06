@@ -62,20 +62,31 @@ function Course() {
   const [lessons, setLessons] = useState([]);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(false);
+  // modules states
+  const [first, setFirst] = useState([]);
+  const [second, setSecond] = useState([]);
+  const [third, setThird] = useState([]);
+  const [fourth, setFourth] = useState([]);
+  const [fifth, setFifth] = useState([]);
+  //shown/hidden for modules
+  const [firstShown, setFirstShown] = useState(false);
+  const [secondShown, setSecondShown] = useState(false);
+  const [thirdShown, setThirdShown] = useState(false);
+  const [fourthShown, setFourthShown] = useState(false);
+  const [fifthShown, setFifthShown] = useState(false);
 
   useEffect(() => {
     // Get user details from localStorage
     const storedProgress = localStorage.getItem("progress");
     const storedUserId = localStorage.getItem("userId");
     const storedUsername = localStorage.getItem("username");
-    console.log(storedProgress);
 
     // Update user state with values from localStorage
     setUser({
       id: storedUserId,
       name: storedUsername,
       num: storedProgress,
-      progress: Math.floor((Number(storedProgress) / 32) * 100),
+      progress: Math.floor((Number(storedProgress) / 36) * 100),
     });
     if (user.id && user.name) {
       setLoading(false);
@@ -114,6 +125,15 @@ function Course() {
       fetchData(name, id);
     }
   }, [user]);
+  useEffect(() => {
+    if (lessons) {
+      setFirst(lessons.slice(1, 9));
+      setSecond(lessons.slice(9, 15));
+      setThird(lessons.slice(15, 22));
+      setFourth(lessons.slice(22, 28));
+      setFifth(lessons.slice(28, 36));
+    }
+  }, [lessons]);
 
   //conditional rendering in functie de requestul pentru lessons
   if (lessons.length > 0) {
@@ -146,20 +166,157 @@ function Course() {
             </p>
           </div>
         </div>
-        <div className=" grid grid-cols-1 gap-2 p-1">
-          {lessons.map((item) => {
-            return (
-              <Lesson
-                key={item.id}
-                id={item.id}
-                completed={user.num >= item.id ? true : false}
-                url={item.id}
-                title={item.content.title}
-                unlocked={item.id - user.num <= 1 ? true : false}
-              />
-            );
-          })}
-          {loading && <p className="text-gray-950 text-center">Loading...</p>}
+        <div className="grid grid-cols-1 gap-2  md:w-1/2">
+          {first && (
+            <>
+              <div
+                className="bg-gray-50/30 p-2 cursor-pointer w-full flex items-center justify-center"
+                onClick={() => setFirstShown(!firstShown)}
+              >
+                <h1 className="poppins font-bold text-xl ">Module I</h1>
+              </div>
+
+              {firstShown && (
+                <div className=" grid grid-cols-1 gap-2 p-1">
+                  <Lesson
+                    key={1}
+                    id={1}
+                    completed={user.num >= 1 ? true : false}
+                    title={"What Does Success Mean to You?"}
+                    unlocked={1 - user.num <= 1 ? true : false}
+                  />
+                  {first.map((item) => {
+                    return (
+                      <Lesson
+                        key={item.id}
+                        id={item.id}
+                        completed={user.num >= item.id ? true : false}
+                        url={item.id}
+                        title={item.content.title}
+                        unlocked={item.id - user.num <= 1 ? true : false}
+                      />
+                    );
+                  })}
+                </div>
+              )}
+            </>
+          )}
+          {second && (
+            <>
+              <div
+                className="bg-gray-50/30 p-2 cursor-pointer w-full flex items-center justify-center"
+                onClick={() => setSecondShown(!secondShown)}
+              >
+                <h1 className="poppins font-bold text-xl w-full text-center">
+                  Module II
+                </h1>
+              </div>
+
+              {secondShown && (
+                <div className=" grid grid-cols-1 gap-2 p-1">
+                  {second.map((item) => {
+                    return (
+                      <Lesson
+                        key={item.id}
+                        id={item.id}
+                        completed={user.num >= item.id ? true : false}
+                        url={item.id}
+                        title={item.content.title}
+                        unlocked={item.id - user.num <= 1 ? true : false}
+                      />
+                    );
+                  })}
+                </div>
+              )}
+            </>
+          )}
+          {third && (
+            <>
+              <div
+                className="bg-gray-50/30 p-2 cursor-pointer w-full flex items-center justify-center"
+                onClick={() => setThirdShown(!thirdShown)}
+              >
+                <h1 className="poppins font-bold text-xl w-full text-center">
+                  Module III
+                </h1>
+              </div>
+
+              {thirdShown && (
+                <div className=" grid grid-cols-1 gap-2 p-1">
+                  {third.map((item) => {
+                    return (
+                      <Lesson
+                        key={item.id}
+                        id={item.id}
+                        completed={user.num >= item.id ? true : false}
+                        url={item.id}
+                        title={item.content.title}
+                        unlocked={item.id - user.num <= 1 ? true : false}
+                      />
+                    );
+                  })}
+                </div>
+              )}
+            </>
+          )}
+          {fourth && (
+            <>
+              <div
+                className="bg-gray-50/30 p-2 cursor-pointer w-full flex items-center justify-center"
+                onClick={() => setFourthShown(!fourthShown)}
+              >
+                <h1 className="poppins font-bold text-xl w-full text-center">
+                  Module IV
+                </h1>
+              </div>
+
+              {fourthShown && (
+                <div className=" grid grid-cols-1 gap-2 p-1">
+                  {fourth.map((item) => {
+                    return (
+                      <Lesson
+                        key={item.id}
+                        id={item.id}
+                        completed={user.num >= item.id ? true : false}
+                        url={item.id}
+                        title={item.content.title}
+                        unlocked={item.id - user.num <= 1 ? true : false}
+                      />
+                    );
+                  })}
+                </div>
+              )}
+            </>
+          )}
+          {fifth && (
+            <>
+              <div
+                className="bg-gray-50/30 p-2 cursor-pointer w-full flex items-center justify-center"
+                onClick={() => setFifthShown(!fifthShown)}
+              >
+                <h1 className="poppins font-bold text-xl w-full text-center">
+                  Module V
+                </h1>
+              </div>
+
+              {fifthShown && (
+                <div className=" grid grid-cols-1 gap-2 p-1">
+                  {fifth.map((item) => {
+                    return (
+                      <Lesson
+                        key={item.id}
+                        id={item.id}
+                        completed={user.num >= item.id ? true : false}
+                        url={item.id}
+                        title={item.content.title}
+                        unlocked={item.id - user.num <= 1 ? true : false}
+                      />
+                    );
+                  })}
+                </div>
+              )}
+            </>
+          )}
         </div>
       </div>
     );

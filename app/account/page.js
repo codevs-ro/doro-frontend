@@ -86,12 +86,6 @@ function Auth() {
                       {user.isPaid ? "Purchased" : "Not purchased"}
                     </div>
                   </p>
-                  <p className="border-t-2 border-gray-950/50 py-2 gap-2 flex items-center">
-                    <div className="w-1/2 text-end">Email</div>{" "}
-                    <div className="w-1/2 text-start font-semibold">
-                      {user.email}
-                    </div>
-                  </p>
                 </div>
                 <button
                   className="mt-8 hidden md:block bg-red-400 px-4 py-2 rounded-md  text-sm font-semibold"
@@ -108,7 +102,7 @@ function Auth() {
                 <p className="poppins mb-2 text-xs">Current progress</p>
                 <div className="p-2 w-full border-2 border-white/50 bg-green-300 rounded-full flex items-center justify-center">
                   <p className="text-xs poppins font-bold text-gray-950">
-                    {user.progress} / 26 Completed
+                    {user.progress} / 36 Completed
                   </p>
                 </div>
                 <button

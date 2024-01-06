@@ -1,5 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata = {
+  title: "Ignite Your Personal Evolution | Successful Mind ",
+  description:
+    "Unleash your potential. Embark on a journey of self-discovery and growth, where every lesson sparks a realization and every insight fuels your evolution. This isn’t just a course; it’s an invitation to embrace your best self.",
+};
+
 function About() {
   return (
     <>

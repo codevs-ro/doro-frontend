@@ -27,15 +27,14 @@ const LessonPage = () => {
     });
   }, []);
   useEffect(() => {
-    if (user.num > 0 && Number(user.num) + Number(2) > 5) {
-      setLocation("https://doro-frontend-ten.vercel.app/completed");
+    if (user.num == 36) {
+      setLocation("http://localhost:3000/completed");
     } else
       setLocation(
-        `https://doro-frontend-ten.vercel.app/course/lesson/${
-          Number(user.num) + Number(2)
-        }`
+        `http://localhost:3000/course/lesson/${Number(user.num) + Number(2)}`
       );
   }, [user.num]);
+  console.log(location);
   const fetchData = async (name, id) => {
     try {
       const url = `https://dorobantu-backend.vercel.app/api/v1${idPath}`; // Replace with your API endpoint
@@ -54,14 +53,15 @@ const LessonPage = () => {
         throw new Error("Network response was not ok");
       }
 
-      const data = await response.json().then((data) => setLesson(data));
+      const data = await response.json().then((data) => {
+        setLesson(data);
+      });
       // Handle the data received from the server
     } catch (error) {
       // Handle fetch errors
       console.error("Fetch error:", error);
     }
   };
-
   useEffect(() => {
     if (idPath != null && user.name && user.id) {
       const id = user.id;
@@ -78,7 +78,7 @@ const LessonPage = () => {
   // Render conten  t based on the fetched data
 
   const updateProgress = async () => {
-    const number = Number(idPath[idPath.length - 1]);
+    const number = lesson[0].id;
     try {
       const response = await fetch(
         "https://dorobantu-backend.vercel.app/api/v1/update-progress",
@@ -108,7 +108,6 @@ const LessonPage = () => {
       console.log(err);
     }
   };
-
   if (lesson[0])
     return (
       <div className=" py-36 px-4 bg-gray-950">
@@ -137,7 +136,7 @@ const LessonPage = () => {
                 </p>
               );
             })}
-            {user.num < Number(idPath[idPath.length - 1]) && (
+            {user.num <= lesson[0].id && (
               <button
                 className="bg-green-300  mt-8 p-2 poppins font-semibold rounded-md"
                 onClick={updateProgress}
@@ -145,7 +144,7 @@ const LessonPage = () => {
                 Complete Lesson
               </button>
             )}
-            {user.num >= Number(idPath[idPath.length - 1]) && (
+            {user.num > lesson[0].id && (
               <div className="bg-green-300  text-center mt-8 p-2 poppins font-semibold rounded-md">
                 <svg
                   className="w-4 h-4 text-gray-800 inline-block mr-2 dark:text-gray-950"
