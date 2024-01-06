@@ -31,8 +31,8 @@ const Hero = () => {
           <Image
             className="w-full"
             src="/hero-img.svg"
-            width={1280}
-            height={1280}
+            width={3600}
+            height={3600}
             alt="Hero Image"
             priority
           />
@@ -110,8 +110,8 @@ const Hero = () => {
         <Image
           className="w-8/12"
           src="/hero-img.svg"
-          width={1280}
-          height={1280}
+          width={3600}
+          height={3600}
           alt="Hero Image"
           priority
         />
@@ -136,8 +136,8 @@ function AboutCourse() {
           <Image
             src="/about-img.svg"
             className="w-full"
-            width={1280}
-            height={1280}
+            width={3600}
+            height={3600}
             alt="About The Course Illustration"
           />
           <p className="mt-4 md:w-10/12 md:text-right font-medium text-sm md:mb-4  ">
@@ -157,8 +157,8 @@ function Bundle() {
         <Image
           src="/bundle-img.svg"
           className="w-8/12"
-          width={1280}
-          height={1280}
+          width={3600}
+          height={3600}
           alt="Bundle Image"
         />
       </div>
@@ -183,8 +183,8 @@ function Bundle() {
             src="/bundle-img.svg"
             className="w-6/12 "
             alt="Bundle Image"
-            width={1280}
-            height={1280}
+            width={3600}
+            height={3600}
           />
           <div className="my-8 p-2 gap-2  flex flex-col">
             <h4 className="text-xs poppins font-semibold text-white flex items-center">
