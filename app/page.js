@@ -31,15 +31,15 @@ const Hero = () => {
           <Image
             className="w-full"
             src="/hero-img.svg"
-            width={800}
-            height={800}
+            width={1280}
+            height={1280}
             alt="Hero Image"
             priority
           />
         </div>
         <Link
-          href="/"
-          className="text-sm text-center md:hidden block rounded-sm text-gray-950 font-semibold bg-green-300 px-6 py-2"
+          href="/about"
+          className="text-sm text-center md:hidden mt-6 block rounded-sm text-gray-950 font-semibold bg-green-300 px-6 py-2"
         >
           <svg
             className="w-4 h-4 text-gray-800 dark:text-gray-950 inline-block mr-2"
@@ -100,15 +100,18 @@ const Hero = () => {
           </svg>
         </div>
         <p className="text-xs mt-1 text-white/50 ">
-          Rating on <span className="font-bold">plr.me</span>
+          Rated by{" "}
+          <span className="font-bold underline underline-offset-2">
+            our students
+          </span>
         </p>
       </div>
       <div className="w-full hidden md:flex items-center justify-end">
         <Image
           className="w-8/12"
           src="/hero-img.svg"
-          width={800}
-          height={800}
+          width={1280}
+          height={1280}
           alt="Hero Image"
           priority
         />
@@ -126,18 +129,20 @@ function AboutCourse() {
           Why choose this course ?
         </h1>
         <div className="w-full md:grid md:grid-cols-3 flex flex-col gap-8 mx-auto mt-8">
-          <p className="mt-4 font-medium text-sm mb-4 md:w-8/12 md:text-left ">
-            This is the best course you could buy trust me
+          <p className="mt-4 font-medium text-sm mb-4 md:w-10/12 md:text-left ">
+            This course is the epitome of personal development, designed by
+            leaders for your success.
           </p>
           <Image
             src="/about-img.svg"
             className="w-full"
-            width={800}
-            height={800}
+            width={1280}
+            height={1280}
             alt="About The Course Illustration"
           />
-          <p className="mt-4 md:w-8/12 md:text-right font-medium text-sm md:mb-4  ">
-            This is the best course you could buy trust me
+          <p className="mt-4 md:w-10/12 md:text-right font-medium text-sm md:mb-4  ">
+            Trusted and effective, this course ensures personal growth. Join
+            achievers and begin your transformation today.
           </p>
         </div>
       </div>
@@ -152,8 +157,8 @@ function Bundle() {
         <Image
           src="/bundle-img.svg"
           className="w-8/12"
-          width={400}
-          height={400}
+          width={1280}
+          height={1280}
           alt="Bundle Image"
         />
       </div>
@@ -178,11 +183,11 @@ function Bundle() {
             src="/bundle-img.svg"
             className="w-6/12 "
             alt="Bundle Image"
-            width={0}
-            height={0}
+            width={1280}
+            height={1280}
           />
           <div className="my-8 p-2 gap-2  flex flex-col">
-            <h4 className="text-md poppins font-semibold text-white flex items-center">
+            <h4 className="text-xs poppins font-semibold text-white flex items-center">
               <svg
                 className="w-4 h-4 inline-block mr-2 text-gray-800 dark:text-yellow-500"
                 aria-hidden="true"
@@ -192,9 +197,9 @@ function Bundle() {
               >
                 <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
               </svg>
-              Benefit
+              Self-Awareness
             </h4>
-            <h4 className="text-md poppins font-semibold text-white flex items-center">
+            <h4 className="text-xs poppins font-semibold text-white flex items-center">
               <svg
                 className="w-4 h-4 inline-block mr-2 text-gray-800 dark:text-yellow-500"
                 aria-hidden="true"
@@ -204,9 +209,9 @@ function Bundle() {
               >
                 <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
               </svg>
-              Benefit
+              Skill Enhancement
             </h4>
-            <h4 className="text-md poppins font-semibold text-white flex items-center">
+            <h4 className="text-xs poppins font-semibold text-white flex items-center">
               <svg
                 className="w-4 h-4 inline-block mr-2 text-gray-800 dark:text-yellow-500"
                 aria-hidden="true"
@@ -216,9 +221,9 @@ function Bundle() {
               >
                 <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
               </svg>
-              Benefit
+              Increased Confidence
             </h4>
-            <h4 className="text-md poppins font-semibold text-white flex items-center">
+            <h4 className="text-xs poppins font-semibold text-white flex items-center">
               <svg
                 className="w-4 h-4 inline-block mr-2 text-gray-800 dark:text-yellow-500"
                 aria-hidden="true"
@@ -228,9 +233,9 @@ function Bundle() {
               >
                 <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
               </svg>
-              Benefit
+              Improved Relationships
             </h4>
-            <h4 className="text-md poppins font-semibold text-white flex items-center">
+            <h4 className="text-xs poppins font-semibold text-white flex items-center">
               <svg
                 className="w-4 h-4 inline-block mr-2 text-gray-800 dark:text-yellow-500"
                 aria-hidden="true"
@@ -240,7 +245,7 @@ function Bundle() {
               >
                 <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
               </svg>
-              Benefit
+              Goal Achievement
             </h4>
           </div>
         </div>
@@ -256,7 +261,7 @@ function Bundle() {
             >
               <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
             </svg>
-            Benefit
+            Self-Awareness
           </h4>
           <h4 className="text-md poppins font-semibold text-white flex items-center">
             <svg
@@ -268,7 +273,7 @@ function Bundle() {
             >
               <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
             </svg>
-            Benefit
+            Improved Relationships
           </h4>
           <h4 className="text-md poppins font-semibold text-white flex items-center">
             <svg
@@ -280,7 +285,7 @@ function Bundle() {
             >
               <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
             </svg>
-            Benefit
+            Skill Enhancement
           </h4>
           <h4 className="text-md poppins font-semibold text-white flex items-center">
             <svg
@@ -292,7 +297,7 @@ function Bundle() {
             >
               <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
             </svg>
-            Benefit
+            Increased Confidence
           </h4>
           <h4 className="text-md poppins font-semibold text-white flex items-center">
             <svg
@@ -304,11 +309,11 @@ function Bundle() {
             >
               <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
             </svg>
-            Benefit
+            Goal Achievement
           </h4>
         </div>
         <Link
-          href="/"
+          href="/about"
           className="text-sm rounded-sm  mt-4 text-center block md:inline-block md:text-left text-gray-950 font-semibold bg-green-300 px-6 py-2"
         >
           <svg
@@ -320,7 +325,7 @@ function Bundle() {
           >
             <path d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z" />
           </svg>
-          Take the offer
+          More info
         </Link>
       </div>
     </div>
@@ -335,14 +340,13 @@ function Contact() {
         Fill in your email address and we will contact you and discuss any issue
         regarding your purchase or any additional interest you may have.
       </p>
-      <input
-        type="email"
-        placeholder="your-email@example.com"
-        className="placeholder:text-sm placeholder:text-center bg-gray-950/20 rounded-md px-4 py-1 border-2 border-gray-950/30"
-      ></input>
-      <button className="text-xs font-bold px-8 py-2 poppins  bg-green-300 rounded-md">
-        Submit
-      </button>
+
+      <a
+        className="text-xs font-bold px-8 py-2 poppins  bg-green-300 rounded-md"
+        href="mailto:email@example.com?subject=Subject%20of%20the%20Email&body=Body%20of%20the%20Email"
+      >
+        Send an email
+      </a>
     </div>
   );
 }

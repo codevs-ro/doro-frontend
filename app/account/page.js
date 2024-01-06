@@ -8,13 +8,21 @@ function Auth() {
   const [isLoading, setIsLoading] = useState(true);
 
   const [auth, setAuth] = useState(0);
-  const [user, setUser] = useState({ username: "", uid: "", progress: 0 });
+  const [user, setUser] = useState({
+    username: "",
+    uid: "",
+    progress: 0,
+    isPaid: 0,
+    email: "",
+  });
 
   useEffect(() => {
     setUser({
       username: localStorage.getItem("username"),
       uid: localStorage.getItem("userId"),
       progress: localStorage.getItem("progress"),
+      isPaid: localStorage.getItem("isPaid"),
+      email: localStorage.getItem("email"),
     });
     setIsLoading(false);
   }, []);
@@ -24,13 +32,11 @@ function Auth() {
       {!isLoading && (
         <div>
           {" "}
-          `
           {!user.username && !user.uid && (
             <h1 className="text-4xl poppins text-white text-center font-bold">
-              Glad to see you!
+              Choose the method
             </h1>
           )}
-          `
           <div className="flex items-center justify-between mx-auto mb-8">
             {!user.username && !user.uid && (
               <div className="w-5/12 mx-auto gap-4 flex  items-center justify-center mt-8">
@@ -63,15 +69,32 @@ function Auth() {
           </div>
           {user.username && user.uid && (
             <div className="poppins p-8 bg-gray-50/10 rounded-md  md:w-1/2 mx-auto flex md:flex-row gap-8 flex-col items-start justify-between">
-              <div>
-                <p className="text-white text-2xl w-full text-left font-bold inline-block">
-                  Logged in as{" "}
-                  <span className="underline inline-block md:ml-4 text-white text-sm">
-                    {user.username}
-                  </span>
+              <div className="md:w-5/12">
+                <p className="text-white text-2xl w-full text-left font-semibold inline-block">
+                  User information
                 </p>
+                <div className="grid grid-cols-1 p-4 bg-white/20 rounded-sm mt-4 text-white text-sm poppins">
+                  <p className="border-t-2 border-gray-950/50 py-2 gap-2 flex items-center">
+                    <div className="w-1/2 text-end">Username</div>{" "}
+                    <div className="w-1/2 text-start font-semibold">
+                      {user.username}
+                    </div>
+                  </p>
+                  <p className="border-t-2 border-gray-950/50 py-2 gap-2 flex items-center">
+                    <div className="w-1/2 text-end">Course</div>{" "}
+                    <div className="w-1/2 text-start font-semibold">
+                      {user.isPaid ? "Purchased" : "Not purchased"}
+                    </div>
+                  </p>
+                  <p className="border-t-2 border-gray-950/50 py-2 gap-2 flex items-center">
+                    <div className="w-1/2 text-end">Email</div>{" "}
+                    <div className="w-1/2 text-start font-semibold">
+                      {user.email}
+                    </div>
+                  </p>
+                </div>
                 <button
-                  className="mt-8 hidden md:block bg-red-400 px-4 py-2 rounded-md font-semibold"
+                  className="mt-8 hidden md:block bg-red-400 px-4 py-2 rounded-md  text-sm font-semibold"
                   onClick={() => {
                     localStorage.clear();
                     setUser({ username: "", uid: "" });

@@ -61,7 +61,7 @@ function Navbar() {
           <div>
             {user.name && user.id && (
               <div
-                className=" cursor-pointer relative py-2 text-sm px-4 text-gray-50 font-semibold rounded-sm flex items-center justify-start"
+                className=" cursor-pointer  capitalize relative py-2 text-sm px-4 text-gray-50 font-semibold rounded-sm flex items-center justify-start"
                 onClick={() => setShown(!shown)}
               >
                 <svg
@@ -81,7 +81,7 @@ function Navbar() {
                 </svg>
                 {user.name}
                 {shown && (
-                  <div className="py-2 px-4 text-xs text-gray-950 flex flex-col gap-4 bg-gray-100 border-4 border-gray-400  rounded-md rounded-b-md absolute   w-full top-8 left-0">
+                  <div className="py-2 px-2 text-xs text-gray-950 flex flex-col gap-4 bg-gray-100 border-4 border-gray-400  rounded-md rounded-b-md absolute   w-full top-8 left-0">
                     {user.isPaid === "true" && (
                       <a href="/course" className="md:hidden block">
                         Course
@@ -95,7 +95,9 @@ function Navbar() {
                         Buy Course
                       </button>
                     )}
-                    <a href="/account">Log out</a>
+                    <a href="/account" className="w-full ">
+                      Account
+                    </a>
                     {/* <a href="/privacy-policy">Privacy Policy</a>
                     <a href="/terms-of-use">Terms of use</a> */}
                   </div>

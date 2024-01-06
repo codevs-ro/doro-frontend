@@ -28,10 +28,12 @@ const LessonPage = () => {
   }, []);
   useEffect(() => {
     if (user.num > 0 && Number(user.num) + Number(2) > 5) {
-      setLocation("http://localhost:3000/completed");
+      setLocation("https://doro-frontend-ten.vercel.app/completed");
     } else
       setLocation(
-        `http://localhost:3000/course/lesson/${Number(user.num) + Number(2)}`
+        `https://doro-frontend-ten.vercel.app/course/lesson/${
+          Number(user.num) + Number(2)
+        }`
       );
   }, [user.num]);
   const fetchData = async (name, id) => {
@@ -159,19 +161,16 @@ const LessonPage = () => {
             )}
             <div className="mt-8 bg-white/80 p-6  rounded-md text-gray-950">
               <h1 className="poppins  text-3xl">Any misunderstandings?</h1>
-              <p className="mt-4 poppins text-sm">
-                Fill in your email address and we will get back to you shortly!
+              <p className="mt-4 poppins text-sm mb-4">
+                Ask us any question related to the course and we will get back
+                to you shortly!
               </p>
-              <div className="flex items-center justify-between mt-4">
-                <input
-                  type="email"
-                  placeholder="your-email@example.com"
-                  className="placeholder:text-sm placeholder:text-white/50 w-8/12 bg-gray-950/20  rounded-md px-4 py-1 border-2 border-gray-950/30"
-                ></input>
-                <button className="text-xs font-bold px-8 py-2 poppins  ml-2   bg-green-300 rounded-md">
-                  Submit
-                </button>
-              </div>
+              <a
+                className="text-xs font-bold px-8 py-2 poppins  bg-green-300 rounded-md"
+                href="mailto:email@example.com?subject=Subject%20of%20the%20Email&body=Body%20of%20the%20Email"
+              >
+                Send an email
+              </a>
             </div>
           </div>
         )}

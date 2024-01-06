@@ -47,7 +47,8 @@ function Login() {
         localStorage.setItem("username", data.name);
         localStorage.setItem("userId", data.id);
         localStorage.setItem("isPaid", data.isPaid);
-        localStorage.setItem("progress" , data.progress)
+        localStorage.setItem("progress", data.progress);
+        localStorage.setItem("email", data.email);
         window.location.href = "/account";
       } else {
         const errorData = await response.json(); // Parse the error response
