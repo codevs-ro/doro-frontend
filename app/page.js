@@ -131,11 +131,11 @@ function AboutCourse() {
       <div className="poppins text-center text-gray-950">
         <div className="pt-1 mx-auto mb-4 rounded-full bg-yellow-500 w-1/12"></div>
         <h1 className="text-4xl font-semibold poppins">
-          Why choose this course ?
+          Why choose this Guide ?
         </h1>
         <div className="w-full md:grid md:grid-cols-3 flex flex-col gap-8 mx-auto mt-8">
           <p className="mt-4 font-medium text-sm mb-4 md:w-10/12 md:text-left ">
-            This course is the epitome of personal development, designed by
+            This Guide is the epitome of personal development, designed by
             leaders for your success.
           </p>
           <Image
@@ -147,7 +147,7 @@ function AboutCourse() {
             priority
           />
           <p className="mt-4 md:w-10/12 md:text-right font-medium text-sm md:mb-4  ">
-            Trusted and effective, this course ensures personal growth. Join
+            Trusted and effective, this guide ensures personal growth. Join
             achievers and begin your transformation today.
           </p>
         </div>

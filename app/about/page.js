@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Ignite Your Personal Evolution | Successful Mind ",
   description:
-    "Unleash your potential. Embark on a journey of self-discovery and growth, where every lesson sparks a realization and every insight fuels your evolution. This isn’t just a course; it’s an invitation to embrace your best self.",
+    "Unleash your potential. Embark on a journey of self-discovery and growth, where every lesson sparks a realization and every insight fuels your evolution. This isn’t just a guide; it’s an invitation to embrace your best self.",
 };
 
 function About() {
@@ -33,7 +33,7 @@ function First() {
         <p className="mt-4 font-medium text-sm mb-8">
           Unleash your potential. Embark on a journey of self-discovery and
           growth, where every lesson sparks a realization and every insight
-          fuels your evolution. This isn’t just a course; it’s an invitation to
+          fuels your evolution. This isn’t just a guide; it’s an invitation to
           embrace your best self.
         </p>
         <Image
@@ -47,7 +47,7 @@ function First() {
           to empower your personal growth. <br /> This isn’t about changing who
           you are; it's about revealing the incredible person you've always
           been, waiting to emerge. From professional aspirations to personal
-          fulfillment, discover how this course transcends boundaries, nurturing
+          fulfillment, discover how this guide transcends boundaries, nurturing
           every facet of your journey. Take charge, define your narrative, and
           write your story of boundless success.
         </p>
@@ -104,7 +104,7 @@ function Bundle() {
           Best deal
         </h1>
         <p className="mt-4 font-medium text-sm mb-8">
-          Get the course now for a maximum return on investment!
+          Get the guide now for a maximum return on investment!
         </p>
         <div className="w-full flex md:hidden items-center justify-between md:justify-center ">
           <Image
@@ -254,7 +254,7 @@ function Bundle() {
             >
               <path d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z" />
             </svg>
-            Get the course
+            Get the guide
           </Link>
           <p className="my-4 font-bold text-2xl flex items-center justify-start text-green-300 ">
             <span className="line-through text-sm  text-red-400 mr-2 ">
