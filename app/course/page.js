@@ -138,7 +138,7 @@ function Course() {
   //conditional rendering in functie de requestul pentru lessons
   if (lessons.length > 0) {
     return (
-      <div className=" px-8 md:px-16 lg:px-32 xl:px-36 2xl:px-96  py-36 bg-gray-950 flex md:flex-row flex-col gap-8 justify-between  text-white">
+      <div className="min-h-screen px-8 md:px-16 lg:px-32 xl:px-36 2xl:px-96  py-36 bg-gray-950 flex md:flex-row flex-col gap-8 justify-between  text-white">
         <div className="">
           <p className="text-left font-bold text-4xl capitalize">
             {" "}

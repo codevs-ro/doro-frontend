@@ -3,6 +3,7 @@ import { useState } from "react";
 import Login from "./Login";
 import Register from "./Register";
 import { useEffect } from "react";
+import Link from "next/link";
 
 function Auth() {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,10 +28,10 @@ function Auth() {
     setIsLoading(false);
   }, []);
   return (
-    <div className="bg-gray-950 px-8 py-44">
+    <div className="bg-gray-950 px-8 py-44 min-h-screen flex items-center">
       {isLoading && <p className="text-xl my-8 mx-8 ">Loading . . . </p>}
       {!isLoading && (
-        <div>
+        <div className="w-full">
           {" "}
           {!user.username && !user.uid && (
             <h1 className="text-4xl poppins text-white text-center font-bold">
@@ -75,14 +76,13 @@ function Auth() {
                 </p>
                 <div className="grid grid-cols-1 p-4 bg-white/20 rounded-sm mt-4 text-white text-sm poppins">
                   <p className="border-t-2 border-gray-950/50 py-2 gap-2 flex items-center">
-                    <div className="w-1/2 text-end">Username</div>{" "}
-                    <div className="w-1/2 text-start font-semibold">
+                    <div className="w-full text-center font-semibold">
                       {user.username}
                     </div>
                   </p>
                 </div>
                 <button
-                  className="mt-8 hidden md:block bg-red-400 px-4 py-2 rounded-md  text-sm font-semibold"
+                  className="mt-8 hidden md:block hover:scale-105 transition-all bg-red-400 px-4 py-2 rounded-md  text-sm font-semibold"
                   onClick={() => {
                     localStorage.clear();
                     setUser({ username: "", uid: "" });
@@ -94,11 +94,14 @@ function Auth() {
               </div>
               <div className="md:w-4/12 w-full text-white">
                 <p className="poppins mb-2 text-xs">Current progress</p>
-                <div className="p-2 w-full border-2 border-white/50 bg-green-300 rounded-full flex items-center justify-center">
+                <Link
+                  href="/course"
+                  className="p-2 w-full border-2 border-white/50 bg-green-300 rounded-full flex items-center justify-center"
+                >
                   <p className="text-xs poppins font-bold text-gray-950">
                     {user.progress} / 36 Completed
                   </p>
-                </div>
+                </Link>
                 <button
                   className="mt-8 md:hidden text-gray-950 bg-red-400 px-4 py-2 rounded-md font-semibold"
                   onClick={() => {

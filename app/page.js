@@ -182,7 +182,7 @@ function Bundle() {
           Best deal
         </h1>
         <p className="mt-4 font-medium text-sm mb-8">
-          Get the course now for a maximum return on investment!
+          Get the gudie now for a maximum return on investment!
         </p>
         <div className="w-full flex md:hidden items-center justify-between md:justify-center ">
           <Image
