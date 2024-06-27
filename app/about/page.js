@@ -21,16 +21,16 @@ function First() {
   return (
     <div className="px-8 md:px-16 lg:px-32 xl:px-36 2xl:px-96  py-24 bg-gray-50 text-xl  text-gray-950">
       <div className="w-full flex items-center justify-between  flex-col md:grid md:grid-cols-2 md:gap-y-4">
-        <h1 className="text-4xl font-semibold poppins w-11/12">
+        <h1 className="text-4xl font-semibold poppins w-11/12 slide-in">
           Ignite Your Personal Evolution
         </h1>
         <Image
           src="/chart.svg"
-          className="md:hidden my-8 w-full"
+          className="md:hidden my-8 w-full slide-in"
           width={1280}
           height={1280}
         ></Image>
-        <p className="mt-4 font-medium text-sm mb-8">
+        <p className="mt-4 font-medium text-sm mb-8 slide-right">
           Unleash your potential. Embark on a journey of self-discovery and
           growth, where every lesson sparks a realization and every insight
           fuels your evolution. This isn’t just a guide; it’s an invitation to
@@ -38,11 +38,11 @@ function First() {
         </p>
         <Image
           src="/chart.svg"
-          className="hidden w-9/12 md:block"
+          className="hidden w-9/12 md:block slide-left"
           width={1280}
           height={1280}
         ></Image>
-        <p className="mt-4 hidden md:block font-medium text-sm mb-8">
+        <p className="mt-4 hidden md:block font-medium text-sm mb-8 slide-right">
           Dive into a curated collection of wisdom and practical tools designed
           to empower your personal growth. <br /> This isn’t about changing who
           you are; it's about revealing the incredible person you've always
@@ -69,7 +69,7 @@ function Second() {
           height={1280}
         ></Image>
 
-        <p className="mt-4 font-medium text-sm mb-8">
+        <p className="mt-4  text-sm mb-8">
           Seize the tools to carve your own path to success. Each module is a
           stepping stone toward a more empowered you. Discover strategies,
           unlock hidden abilities, and redefine what's possible.
@@ -240,29 +240,26 @@ function Bundle() {
             Goal Achievement
           </h4>
         </div>
-        <div className="flex items-center gap-2 justify-start">
-          <Link
-            href="/account"
-            className="text-sm rounded-sm   text-center block md:inline-block md:text-left text-gray-950 font-semibold bg-green-300 px-6 py-2"
+        <p className="my-4  text-lg font-bold flex items-center justify-start text-white ">
+          For only
+          <span className=" text-xl  text-green-300 ml-2  ">€ 99</span>
+          <span className="line-through   text-red-400 mx-2 ">€ 250</span>
+        </p>
+        <Link
+          href="/account"
+          className="text-sm rounded-sm hover:scale-105 transition-all hover:bg-green-400  text-center block md:inline-block md:text-left text-gray-950 font-semibold bg-green-300 px-6 py-2"
+        >
+          <svg
+            className="w-4 h-4 text-gray-800 dark:text-gray-950 inline-block mr-2"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 16 20"
           >
-            <svg
-              className="w-4 h-4 text-gray-800 dark:text-gray-950 inline-block mr-2"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 16 20"
-            >
-              <path d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z" />
-            </svg>
-            Get the guide
-          </Link>
-          <p className="my-4 font-bold text-2xl flex items-center justify-start text-green-300 ">
-            <span className="line-through text-sm  text-red-400 mr-2 ">
-              €250
-            </span>
-            €99
-          </p>
-        </div>
+            <path d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z" />
+          </svg>
+          Get the guide
+        </Link>
       </div>
     </div>
   );

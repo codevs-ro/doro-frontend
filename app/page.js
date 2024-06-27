@@ -9,18 +9,18 @@ export const metadata = {
 
 const Hero = () => {
   return (
-    <div className="px-8 md:px-16 lg:px-32 xl:px-36 2xl:px-96  pt-36 pb-24 bg-gray-950 text-xl flex md:flex-row flex-col items-center justify-between text-white">
+    <div className="min-h-screen px-8 md:px-16 lg:px-32 xl:px-36 2xl:px-96  pt-36 pb-24 bg-gray-950 text-xl flex md:flex-row flex-col items-center justify-between text-white">
       <div className="poppins w-full">
-        <h1 className="text-4xl font-semibold poppins">
+        <h1 className="text-4xl font-semibold poppins slide-in">
           Find your own way today!
         </h1>
-        <p className="mt-4 font-medium text-sm mb-8">
+        <p className="mt-4  text-sm mb-8 slide-in">
           Learn how to take controll over your life and achieve your goals with
           the speed of light.
         </p>
         <Link
           href="/about"
-          className="text-sm  hidden md:inline-block rounded-sm text-gray-950 font-semibold bg-green-300 px-6 py-2"
+          className="text-sm slide-in hover:scale-105 transition-all hover:bg-green-400 hidden md:inline-block rounded-sm text-gray-950 font-semibold bg-green-300 px-6 py-2"
         >
           <svg
             className="w-4 h-4 text-gray-800 dark:text-gray-950 inline-block mr-2"
@@ -33,9 +33,9 @@ const Hero = () => {
           </svg>
           See more
         </Link>
-        <div className="w-full md:hidden ">
+        <div className="w-full md:hidden">
           <Image
-            className="w-full"
+            className="w-full z-0"
             src="/hero-img.svg"
             width={3600}
             height={3600}
@@ -58,7 +58,7 @@ const Hero = () => {
           </svg>
           See more
         </Link>
-        <div className="grid gap-4 md:gap-2 grid-cols-5 md:mt-8 mt-2 w-3/12 ">
+        <div className="grid gap-4 md:gap-2 grid-cols-5 md:mt-8 mt-2 w-3/12 slide-left">
           <svg
             className="w-4 h-4 text-gray-800 dark:text-yellow-500 mt-1"
             aria-hidden="true"
@@ -105,7 +105,7 @@ const Hero = () => {
             <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
           </svg>
         </div>
-        <p className="text-xs mt-1 text-white/50 ">
+        <p className="text-xs mt-1 text-white/50 slide-left  ">
           Rated by{" "}
           <span className="font-bold underline underline-offset-2">
             our students
@@ -114,7 +114,7 @@ const Hero = () => {
       </div>
       <div className="w-full hidden md:flex items-center justify-end">
         <Image
-          className="w-8/12"
+          className="w-8/12 slide-right z-0"
           src="/hero-img.svg"
           width={3600}
           height={3600}
@@ -130,11 +130,11 @@ function AboutCourse() {
     <div className="px-8 md:px-16 lg:px-32 xl:px-36 2xl:px-96  py-24 bg-gray-50 text-xl flex flex-col text-white">
       <div className="poppins text-center text-gray-950">
         <div className="pt-1 mx-auto mb-4 rounded-full bg-yellow-500 w-1/12"></div>
-        <h1 className="text-4xl font-semibold poppins">
+        <h1 className="text-4xl font-semibold poppins slide-in">
           Why choose this Guide ?
         </h1>
         <div className="w-full md:grid md:grid-cols-3 flex flex-col gap-8 mx-auto mt-8">
-          <p className="mt-4 font-medium text-sm mb-4 md:w-10/12 md:text-left ">
+          <p className="mt-4 font-medium  slide-left text-sm mb-4 md:w-10/12 md:text-left ">
             This Guide is the epitome of personal development, designed by
             leaders for your success.
           </p>
@@ -146,7 +146,7 @@ function AboutCourse() {
             alt="About The Course Illustration"
             priority
           />
-          <p className="mt-4 md:w-10/12 md:text-right font-medium text-sm md:mb-4  ">
+          <p className="mt-4 md:w-10/12 slide-right md:text-right font-medium text-sm md:mb-4  ">
             Trusted and effective, this guide ensures personal growth. Join
             achievers and begin your transformation today.
           </p>
@@ -321,7 +321,7 @@ function Bundle() {
         </div>
         <Link
           href="/about"
-          className="text-sm rounded-sm  mt-4 text-center block md:inline-block md:text-left text-gray-950 font-semibold bg-green-300 px-6 py-2"
+          className=" hover:scale-105 transition-all hover:bg-green-400 text-sm rounded-sm  mt-4 text-center block md:inline-block md:text-left text-gray-950 font-semibold bg-green-300 px-6 py-2"
         >
           <svg
             className="w-4 h-4 text-gray-800 dark:text-gray-950 inline-block mr-2"
@@ -343,15 +343,30 @@ function Contact() {
   return (
     <div className="poppins px-8 md:px-16 lg:px-32 xl:px-36 2xl:px-96  py-24 bg-gray-50 text-xl flex flex-col items-center gap-4 text-gray-950">
       <h1 className="text-4xl">Let's talk about it</h1>
-      <p className=" font-medium text-sm md:w-5/12 text-center">
+      <p className=" font-medium text-sm md:w-5/12 text-center mt-4">
         Fill in your email address and we will contact you and discuss any issue
         regarding your purchase or any additional interest you may have.
       </p>
 
       <a
-        className="text-xs font-bold px-8 py-2 poppins  bg-green-300 rounded-md"
+        className=" hover:scale-105 transition-all hover:bg-green-400 text-sm mt-4 px-8 py-2 poppins  bg-green-300 rounded-sm"
         href="mailto:email@example.com?subject=Subject%20of%20the%20Email&body=Body%20of%20the%20Email"
       >
+        <svg
+          className="w-6 h-6 text-gray-800 inline-block mr-2"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3 5.983C3 4.888 3.895 4 5 4h14c1.105 0 2 .888 2 1.983v8.923a1.992 1.992 0 0 1-2 1.983h-6.6l-2.867 2.7c-.955.899-2.533.228-2.533-1.08v-1.62H5c-1.105 0-2-.888-2-1.983V5.983Zm5.706 3.809a1 1 0 1 0-1.412 1.417 1 1 0 1 0 1.412-1.417Zm2.585.002a1 1 0 1 1 .003 1.414 1 1 0 0 1-.003-1.414Zm5.415-.002a1 1 0 1 0-1.412 1.417 1 1 0 1 0 1.412-1.417Z"
+            clip-rule="evenodd"
+          />
+        </svg>
         Send an email
       </a>
     </div>

@@ -42,17 +42,20 @@ function Navbar() {
     }
   };
   return (
-    <nav className="bg-gray-950 border-b  border-white/20 px-2 md:px-16 lg:px-32 xl:px-36 2xl:px-96 py-4 fixed top-0 w-full flex items-center justify-between">
+    <nav className="bg-gray-950 border-b z-10 border-white/20 px-2 md:px-16 lg:px-32 xl:px-36 2xl:px-96 py-4 fixed top-0 w-full flex items-center justify-between">
       <a
         href="/"
-        className="poppins text-green-300  font-bold font-sans py-2 px-4 text-sm md:text-xl flex items-center justify-start gap-1 "
+        className="poppins text-green-300  hover:underline transition-all font-bold font-sans py-2 px-4 text-sm md:text-xl flex items-center justify-start gap-1 "
       >
         successful-mind.com
       </a>
 
       <div className="w-5/12 text-white poppins font-normal   items-center hidden md:block justify-between">
         {!isLoading && user.isPaid === "true" && <a href="/course">Course</a>}
-        <a href="/about" className="ml-2">
+        <a
+          href="/about"
+          className="ml-2 hover:text-yellow-300 transition-all hover:underline"
+        >
           About
         </a>
       </div>
@@ -90,12 +93,15 @@ function Navbar() {
                     {user.isPaid === "false" && (
                       <button
                         onClick={handlePayment}
-                        className="md:hidden bg-green-300  p-1 text-center rounded-md block"
+                        className="md:hidden hover:scale-105 transition-all  bg-green-300  p-1 text-center rounded-md block"
                       >
                         Buy Course
                       </button>
                     )}
-                    <a href="/account" className="w-full ">
+                    <a
+                      href="/account"
+                      className=" hover:scale-105 transition-all w-full "
+                    >
                       Account
                     </a>
                     {/* <a href="/privacy-policy">Privacy Policy</a>
@@ -107,7 +113,7 @@ function Navbar() {
             {!user.name && !user.id && (
               <a
                 href="/account"
-                className="border-2 text-xs border-green-300 poppins text-white font-sans py-2 px-4 font-bold rounded-md"
+                className="hover:bg-green-300/10 transition-all border-2 text-xs border-green-300 poppins text-white font-sans py-2 px-4 font-bold rounded-md"
               >
                 Register / Login
               </a>
@@ -116,7 +122,7 @@ function Navbar() {
         )}
         {user.isPaid === "false" && (
           <button
-            className="hidden md:block py-2 px-4 ml-2 text-sm font-semibold text-gray-950 rounded-md poppins  bg-green-300"
+            className=" hover:scale-105 transition-all hidden md:block py-2 px-4 ml-2 text-sm font-semibold text-gray-950 rounded-md poppins  bg-green-300"
             onClick={handlePayment}
           >
             Buy the course

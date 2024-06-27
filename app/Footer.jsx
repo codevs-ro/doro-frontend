@@ -10,15 +10,45 @@ function Footer() {
         successful-mind.com
       </a>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 items-start justify-start w-full text-sm gap-8 md:gap-12 text-white poppins">
+      <div className="grid grid-cols-1 md:grid-cols-3 items-start justify-start w-full text-sm gap-8 md:gap-12 text-white poppins">
         <div className="grid grid-cols-1 items-center text-center gap-4">
-          <h3 className="text-lg">Website Map</h3>
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
+          <h3 className="text-lg font-medium">Website Map</h3>
+          <Link
+            href="/"
+            className="hover:underline hover:text-yellow-300 transition-all"
+          >
+            Home
+          </Link>
+          <Link
+            href="/about"
+            className="hover:underline hover:text-yellow-300 transition-all"
+          >
+            About
+          </Link>
         </div>
         <div className="grid grid-cols-1 items-center text-center gap-4">
-          <h3 className="text-lg">Contact us</h3>
-          <Link href="mailto:motivational1money1@gmail.com">Email</Link>
+          <h3 className="text-lg font-medium">Social Media</h3>
+          <Link
+            href="/"
+            className="hover:underline hover:text-yellow-300 transition-all"
+          >
+            LinkedIN
+          </Link>
+          <Link
+            href="/about"
+            className="hover:underline hover:text-yellow-300 transition-all"
+          >
+            Instagram
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 items-center text-center gap-4">
+          <h3 className="text-lg font-medium">Contact us</h3>
+          <Link
+            href="mailto:motivational1money1@gmail.com"
+            className="hover:underline hover:text-yellow-300 transition-all"
+          >
+            Email
+          </Link>
         </div>
       </div>
     </footer>

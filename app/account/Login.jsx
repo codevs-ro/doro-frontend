@@ -59,7 +59,7 @@ function Login() {
     }
   };
   return (
-    <div className="poppins w-9/12 md:w-3/12 rounded-xl mx-auto bg-gray-50/10 border-2 border-gray-500 p-8">
+    <div className="slide-in poppins w-9/12 md:w-3/12 rounded-xl mx-auto bg-gray-10/10 border-2 border-gray-500 p-8">
       <h3 className="text-gray-50 text-xl sans font-bold mb-4 w-full text-center">
         Login to your account{" "}
       </h3>

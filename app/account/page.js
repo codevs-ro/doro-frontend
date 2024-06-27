@@ -35,7 +35,7 @@ function Auth() {
           {" "}
           {!user.username && !user.uid && (
             <h1 className="text-4xl poppins text-white text-center font-bold">
-              Choose the method
+              Your successful-mind.com account{" "}
             </h1>
           )}
           <div className="flex items-center justify-between mx-auto mb-8">
@@ -51,6 +51,25 @@ function Auth() {
                     setAuth(0);
                   }}
                 >
+                  <svg
+                    className={
+                      auth == 0
+                        ? "w-6 h-6 mr-2 text-black inline-block "
+                        : "w-6 h-6 mr-2 text-black/50 inline-block "
+                    }
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
                   Login
                 </p>
                 <h1
@@ -63,6 +82,25 @@ function Auth() {
                     setAuth(1);
                   }}
                 >
+                  <svg
+                    className={
+                      auth == 1
+                        ? "w-6 h-6 mr-2 text-black inline-block "
+                        : "w-6 h-6 mr-2 text-black/50 inline-block "
+                    }
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M9 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4H7Zm8-1a1 1 0 0 1 1-1h1v-1a1 1 0 1 1 2 0v1h1a1 1 0 1 1 0 2h-1v1a1 1 0 1 1-2 0v-1h-1a1 1 0 0 1-1-1Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
                   Register
                 </h1>
               </div>
@@ -70,7 +108,7 @@ function Auth() {
           </div>
           {user.username && user.uid && (
             <div className="poppins p-8 bg-gray-50/10 rounded-md  md:w-1/2 mx-auto flex md:flex-row gap-8 flex-col items-start justify-between">
-              <div className="md:w-5/12">
+              <div className="md:w-5/12 slide-left">
                 <p className="text-white text-2xl w-full text-left font-semibold inline-block">
                   User information
                 </p>
@@ -92,7 +130,7 @@ function Auth() {
                   Log out
                 </button>
               </div>
-              <div className="md:w-4/12 w-full text-white">
+              <div className="md:w-4/12 slide-right w-full text-white">
                 <p className="poppins mb-2 text-xs">Current progress</p>
                 <Link
                   href="/course"
